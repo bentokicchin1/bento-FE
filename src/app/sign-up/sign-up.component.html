@@ -1,0 +1,35 @@
+<section id="signin">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h1>Create an account</h1>
+        <div class="signin-form">
+          <form id="contact-form" (ngSubmit)="register()" [formGroup]="signUpForm">
+            <div class="form-group">
+              <input formControlName="firstName" type="text" class="form-control" placeholder="First Name" required>
+              <span class="error-message" *ngIf="(signUpForm.get('firstName').touched || 
+                        signUpForm.get('firstName').dirty) && 
+                        signUpForm.get('firstName').errors">
+                <span *ngIf="signUpForm.get('firstName').errors.required">
+                    Please enter your first name.
+                </span>
+                <span *ngIf="signUpForm.get('firstName').errors.minlength">
+                    The first name must be longer than 3 characters.
+                </span>
+              </span>
+              <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name" required>
+              <input formControlName="mobile" type="text" class="form-control" placeholder="Mobile Number" required>
+              <input formControlName="email" type="text" class="form-control" placeholder="Email Address" required>
+              <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
+              <input formControlName="rePass" type="password" class="form-control" placeholder="Confirm Password" required>
+              <div class="signin-submit">
+                <input [disabled]="!signUpForm.valid" type="submit" class="form-control submit" value="Register">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
