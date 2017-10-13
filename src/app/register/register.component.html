@@ -1,0 +1,44 @@
+<section id="signin">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h1>Create an account</h1>
+        <div class="signin-form">
+          <form id="contact-form" (ngSubmit)="register()" [formGroup]="registerForm">
+            <div class="form-group">
+              <input formControlName="firstName" type="text" class="form-control" placeholder="First Name (required)">
+              <span class="error-message" *ngIf="errorMessage.firstName">
+                  {{ errorMessage.firstName }}
+              </span>
+
+              <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name">
+
+              <input formControlName="mobile" type="text" class="form-control" placeholder="Mobile Number (required)">
+              <span class="error-message" *ngIf="errorMessage.mobile">
+                  {{ errorMessage.mobile }}
+              </span>
+              <input formControlName="email" type="text" class="form-control" placeholder="Email Address (required)">
+              <span class="error-message" *ngIf="errorMessage.email">
+                  {{ errorMessage.email }}
+              </span>
+              <div formGroupName="passwordGroup">
+                <input formControlName="password" type="password" class="form-control" placeholder="Password (required)">
+                <span class="error-message" *ngIf="errorMessage.password">
+                  {{ errorMessage.password }}
+                </span>
+                <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirm Password (required)">
+                <span class="error-message" *ngIf="errorMessage.confirmPassword">
+                  {{ errorMessage.confirmPassword }}
+                </span>
+              </div>
+              <div class="signin-submit">
+                <input [disabled]="!registerForm.valid" type="submit" class="form-control submit" value="Register">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

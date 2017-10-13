@@ -1,29 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Routing } from './app.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
+import { HttpModule } from '@angular/http';
+
+// used to create fake backend
+import { fakeBackendProvider } from './_helpers/fake-backend';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
-
-const routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'my-orders', component: OrdersComponent },
-  { path: 'subscription', component: SubscriptionComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'register', component: SignUpComponent },
-  { path: 'login', component: SignInComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: '', component: HomeComponent }
-];
+import { UserService } from './_services/user.service';
 
 @NgModule({
   declarations: [
@@ -31,8 +28,8 @@ const routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    SignInComponent,
-    SignUpComponent,
+    LoginComponent,
+    RegisterComponent,
     OrdersComponent,
     SubscriptionComponent,
     ProfileComponent,
@@ -42,9 +39,16 @@ const routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    CustomFormsModule,
+    Routing
   ],
-  providers: [],
+  providers: [
+    UserService,
+    // providers used to create fake backend
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

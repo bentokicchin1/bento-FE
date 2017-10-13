@@ -403,6 +403,15 @@ a.icon {
   padding-bottom: 100px;
 }
 
+#header-custom {
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  /* padding-top: 130px; */
+  padding-bottom: 20px;
+}
+
 #header .header-thumb {
   background: #ffffff;
   border: 10px solid #f9f9f9;
@@ -438,7 +447,7 @@ a.icon {
   background: url('../images/header-three-bg.jpg') no-repeat;
 }
 .header-four {
-  background: url('../images/header-four-bg.jpg') no-repeat;
+  background: url('../images/header-bg-1.jpg') no-repeat;
 }
 .header-five {
   background: url('../images/header-five-bg.jpg') no-repeat;
@@ -787,7 +796,7 @@ a.icon {
 /* ========================================== */
 #signin {
   padding-top: 2rem;
-  padding-bottom: 10rem;
+  padding-bottom: 9rem;
 }
 
 #signin .fa {
@@ -847,7 +856,7 @@ a.icon {
 /* ========================================== */
 footer {
   background: #141414;
-  padding-top: 30px;
+  padding-top: 60px;
   padding-bottom: 30px;
   text-align: center;
 }
