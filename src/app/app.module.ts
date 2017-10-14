@@ -16,11 +16,12 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { OrdersComponent } from './orders/orders.component';
+import { MyOrderComponent } from './my-order/my-order.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserService } from './_services/user.service';
+import { BookNowComponent } from './book-now/book-now.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,11 @@ import { UserService } from './_services/user.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    OrdersComponent,
+    MyOrderComponent,
     SubscriptionComponent,
     ProfileComponent,
-    ContactComponent
+    ContactComponent,
+    BookNowComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { UserService } from './_services/user.service';
   providers: [
     UserService,
     // providers used to create fake backend
-    fakeBackendProvider,
+    // fakeBackendProvider,
     MockBackend,
     BaseRequestOptions
   ],

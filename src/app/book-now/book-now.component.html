@@ -1,0 +1,92 @@
+<!-- Header section
+================================================== -->
+<section id="header-custom">
+  <div class="container bottom-line">
+    <div class="row">
+
+      <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+        <div class="header-thumb">
+          <h1 class="wow fadeIn" data-wow-delay="0.3s">Order Now</h1>
+          <h3 class="wow fadeInUp" data-wow-delay="0.3s">Feeling hungry, let's place the order</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Book Now section
+================================================== -->
+<section id="order">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 order wow fadeIn" data-wow-delay="0.5s">
+        <div class="order-form">
+          <form (ngSubmit)="order()" [formGroup]="orderForm">
+
+            <select class="form-control">
+              <option>Choose Your Favourite Sabji</option>
+              <option value="">Aloo (30)</option>
+              <option>Bhendi (40)</option>
+              <option>Palak Paneer (50)</option>
+              <option>Tomato (30)</option>
+            </select>
+
+            <select class="form-control">
+              <option>Choose Chapati Count
+                <span class="note"> (3 rupees per piece)</span>
+              </option>
+              <option value="">1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+
+            <!-- <input formControlName="chapati" type="text" class="form-control" placeholder="Enter Chapati Count (3 rupees per piece)"> -->
+            <div class="checkbox">
+              <label style="font-size: 1.5em">
+                <input type="checkbox" value="" checked>
+                <span class="cr">
+                  <i class="cr-icon fa fa-check"></i>
+                </span>
+                <span>
+                  Butter Milk (
+                  <i class="fa fa-inr"></i>10)
+                </span>
+              </label>
+
+              <label style="font-size: 1.5em">
+                <input type="checkbox" value="" checked>
+                <span class="cr">
+                  <i class="cr-icon fa fa-check"></i>
+                </span>
+                <span>
+                  Rice (
+                  <i class="fa fa-inr"></i>20)
+                </span>
+              </label>
+
+              <label style="font-size: 1.5em">
+                <input type="checkbox" value="" checked>
+                <span class="cr">
+                  <i class="cr-icon fa fa-check"></i>
+                </span>
+                <span>
+                  Dal (
+                  <i class="fa fa-rupee"></i>20)
+                </span>
+              </label>
+            </div>
+
+            <div class="order-submit">
+              <input [disabled]="!loginForm.valid" type="submit" class="form-control submit" value="Place Your Order">
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

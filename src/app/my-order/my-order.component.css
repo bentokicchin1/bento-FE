@@ -59,6 +59,12 @@
     text-align: center;
     transition: all 0.4s ease-in-out;
   }
+
+  .month-heading{
+    font-size: 30px;
+    font-weight: 400;
+    padding-left: 16px;
+  }
   
   .my-order .order-id{
     margin-bottom: 3px;
@@ -77,4 +83,8 @@
   #orders{
       margin-bottom: 25px;
       margin-top: 15px;
+  }
+
+  #orders .media{
+    margin-bottom: 10px;
   }
