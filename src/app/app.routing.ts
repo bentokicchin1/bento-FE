@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     { path: 'dinner', component: BookNowComponent },
     { path: '', component: HomeComponent },
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    // { path: '**', redirectTo: '' }
 ];
 
 export const Routing = RouterModule.forRoot(appRoutes);

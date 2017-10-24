@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   errorMessage: { [key: string]: string } = {};
   userData;
+  message: {type:string, text:string};
 
   private validationMessages = {
     firstName: {
@@ -112,18 +113,26 @@ export class RegisterComponent implements OnInit {
 
   register() {
     // this.loading = true;
-    this.userData = this.registerForm.value;
+    this.userData = JSON.stringify(this.registerForm.value);
     this.userService.create(this.userData)
         .subscribe(
             data => {
                 // this.alertService.success('Registration successful', true);
-                this.router.navigate(['/login']);
+                this.message = {'type':"success", 'text':'Registration successful'};
+                // this.message.type='success';
+                // this.message.text='Registration successful';
+                // this.router.navigate(['/login']);
             },
             error => {
                 // this.alertService.error(error);
                 // this.loading = false;
-            });
-            console.log(this.userService);
+                this.message = {'type':"error", 'text':<any>error};
+                // this.message.type='error';
+                // this.message.text=<any>error;
+            }
+            // error => this.errMessage = <any>error
+          );
+            // console.log(this.userService);
 }
 
 }
