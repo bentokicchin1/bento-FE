@@ -36,6 +36,8 @@
               </div>
             </div>
           </form>
+          <!-- <div class='alert alert-success' *ngIf='errMessage'><strong>{{errMessage}}</strong></div> -->
+          <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }"><strong>{{message.text}}</strong></div>
         </div>
       </div>
 

@@ -6,9 +6,9 @@ import { CustomFormsModule } from 'ng2-validation';
 import { HttpModule } from '@angular/http';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers/fake-backend';
-import { MockBackend, MockConnection } from '@angular/http/testing';
-import { BaseRequestOptions } from '@angular/http';
+// import { fakeBackendProvider } from './_helpers/fake-backend';
+// import { MockBackend, MockConnection } from '@angular/http/testing';
+// import { BaseRequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -42,14 +42,15 @@ import { BookNowComponent } from './book-now/book-now.component';
     FormsModule,
     ReactiveFormsModule,
     CustomFormsModule,
+    HttpModule,
     Routing
   ],
   providers: [
     UserService,
     // providers used to create fake backend
     // fakeBackendProvider,
-    MockBackend,
-    BaseRequestOptions
+    // MockBackend,
+    // BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })
