@@ -20,6 +20,7 @@
               <input [disabled]= "!loginForm.valid" type="submit" class="form-control submit" value="Get Me In">
             </div>
           </form>
+          <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }"><strong>{{message.text}}</strong></div>
         </div>
       </div>
     </div>

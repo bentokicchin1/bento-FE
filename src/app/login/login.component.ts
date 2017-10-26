@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
+
+import { UserModel} from '../_models/user.model';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +14,18 @@ import { CustomValidators } from 'ng2-validation';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  userData: UserModel; 
+  message: {type:string, text:string};
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authentication: AuthenticationService
+   ) { }
 
   ngOnInit(): void {
+
+    this.authentication.logout();
+
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -20,7 +33,19 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log(JSON.stringify(this.loginForm.value));
+
+    this.userData = (this.loginForm.value);
+    this.authentication.login(this.userData)
+    .subscribe(
+      data => {
+        this.message = {"type":"success", 'text':'Login successful'};
+        this.router.navigate(['/home']);
+      },
+      error => {
+        this.message = {'type':"error", 'text':<any>error};
+      }
+    );
+
   }
 
 }
