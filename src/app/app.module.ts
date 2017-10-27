@@ -16,7 +16,7 @@ import { SubscriptionComponent } from './subscription/subscription.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { BookNowComponent } from './book-now/book-now.component';
-
+import { LogoutComponent } from './logout/logout.component';
 
 //Services
 import { UserService } from './_services/user.service';
@@ -35,7 +35,8 @@ import { AuthenticationService } from './_services/authentication.service';
     SubscriptionComponent,
     ProfileComponent,
     ContactComponent,
-    BookNowComponent
+    BookNowComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

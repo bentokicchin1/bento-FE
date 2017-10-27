@@ -11,11 +11,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     let data = JSON.parse(localStorage.getItem('currentUser'));
-    // localStorage.clear();
-    if(data && data){
-      console.log(JSON.stringify(data) + ' Inside If');
+    if (data && data != "undefined" && data != "null") {
+      console.log(data.firstName + ' Parse');
     }
-    console.log(JSON.stringify(data) + ' Outside');
   }
 
 }

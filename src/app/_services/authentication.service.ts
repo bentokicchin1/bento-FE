@@ -22,6 +22,7 @@ export class AuthenticationService{
     }
 
     logout(){
+        // localStorage.removeItem('currentUser');
         localStorage.removeItem('currentUser');
     }
 
@@ -29,9 +30,10 @@ export class AuthenticationService{
     private extractData(response: Response) {
         
         let user = response.json();
+        console.log(JSON.stringify(user.body) + ' Auth');
         // console.log(user);
         // return user || {};
-        if(user && user.status == 200){
+        if(user){
             localStorage.setItem('currentUser', JSON.stringify(user.body));
         }
     }
