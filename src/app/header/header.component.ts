@@ -6,13 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  loginSession:boolean=false;
   constructor() { }
 
   ngOnInit() {
     let data = JSON.parse(localStorage.getItem('currentUser'));
-    if (data && data != "undefined" && data != "null") {
-      console.log(data.firstName + ' Parse');
+    console.log(data + ' Parse');
+    // console.log(this.loginSession);
+    if (data && !(data == "undefined" || data == "null")) {
+        this.loginSession = true;
+        console.log(this.loginSession);
     }
   }
 

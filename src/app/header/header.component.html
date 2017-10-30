@@ -31,12 +31,12 @@
                 <div class="intro-inner">
                   <ul id="nav-menu">
                     <li><a [routerLink]="['/home']">Home</a></li>
-                    <li><a [routerLink]="['/my-orders']">My Order</a></li>
-                    <li><a [routerLink]="['/subscription']">Subscription</a></li>
-                    <li><a [routerLink]="['/profile']">Profile</a></li>
-                    <li><a [routerLink]="['/register']">Register</a></li>
-                    <li><a [routerLink]="['/login']">Login</a></li>
-                    <li><a [routerLink]="['/login']">Logout</a></li>
+                    <li *ngIf="loginSession"><a [routerLink]="['/my-orders']">My Order</a></li>
+                    <li *ngIf="loginSession"><a [routerLink]="['/subscription']">Subscription</a></li>
+                    <li *ngIf="loginSession"><a [routerLink]="['/profile']">Profile</a></li>
+                    <li *ngIf="! loginSession"><a [routerLink]="['/register']">Register</a></li>
+                    <li *ngIf="! loginSession"><a [routerLink]="['/login']">Login</a></li>
+                    <li *ngIf="loginSession"><a [routerLink]="['/logout']">Logout</a></li>
                     <li><a [routerLink]="['/contact']">Contact-Us</a></li>
                   </ul>
                 </div>
