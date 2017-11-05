@@ -5,6 +5,7 @@ import { CustomValidators } from 'ng2-validation';
 
 import { UserModel} from '../_models/user.model';
 import { AuthenticationService } from '../_services/authentication.service';
+import { GlobalErrorHandler } from '../_services/globalerrorhandler.service'
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authentication: AuthenticationService
+    private authentication: AuthenticationService,
+    private globalError: GlobalErrorHandler
    ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       },
       error => {
+        this.globalError.handleError(error);
         this.message = {'type':"error", 'text':<any>error};
       }
     );
