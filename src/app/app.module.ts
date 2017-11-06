@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler  } from '@angular/core';
 import { Routing } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
@@ -21,6 +21,7 @@ import { LogoutComponent } from './logout/logout.component';
 //Services
 import { UserService } from './_services/user.service';
 import { AuthenticationService } from './_services/authentication.service';
+import { GlobalErrorHandler } from './_services/globalerrorhandler.service'
 
 
 @NgModule({
@@ -48,7 +49,12 @@ import { AuthenticationService } from './_services/authentication.service';
   ],
   providers: [
     UserService,
-    AuthenticationService
+    AuthenticationService,
+    GlobalErrorHandler,
+    {
+      provide: ErrorHandler, 
+      useClass: GlobalErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
