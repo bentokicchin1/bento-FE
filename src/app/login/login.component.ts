@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { CustomValidators } from 'ng2-validation';
 
 import { UserModel} from '../_models/user.model';
 import { AuthenticationService } from '../_services/authentication.service';
@@ -44,8 +43,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       },
       error => {
-        this.globalError.handleError(error);
-        this.message = {'type':"error", 'text':<any>error};
+        // this.globalError.handleError(error);
+        this.message = {'type':"error", 'text': <any>this.globalError.handleError(error)};
       }
     );
 

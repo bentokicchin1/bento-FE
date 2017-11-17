@@ -25,28 +25,34 @@
         <div class="order-form">
           <form (ngSubmit)="order()" [formGroup]="orderForm">
 
-            <select class="form-control">
+            <select formControlName="sabji" class="form-control">
               <option>Choose Your Favourite Sabji</option>
-              <option value="">Aloo (30)</option>
-              <option>Bhendi (40)</option>
-              <option>Palak Paneer (50)</option>
-              <option>Tomato (30)</option>
+              <option value="Aloo">Aloo (30)</option>
+              <option value="Bhendi">Bhendi (40)</option>
+              <option value="Palak Paneer">Palak Paneer (50)</option>
+              <option value="Tomato">Tomato (30)</option>
             </select>
+            <span class="error-message" *ngIf="orderForm.get('sabji').errors?.required && (orderForm.get('sabji').touched || orderForm.get('sabji').dirty)">
+              Please select sabji.
+            </span>
 
-            <select class="form-control">
+            <select formControlName="chapati" class="form-control">
               <option>Choose Chapati Count
                 <span class="note"> (3 rupees per piece)</span>
               </option>
-              <option value="">1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
+            <span class="error-message" *ngIf="orderForm.get('chapati').errors?.required && (orderForm.get('chapati').touched || orderForm.get('chapati').dirty)">
+              Please select chapati.
+            </span>
 
             <!-- <input formControlName="chapati" type="text" class="form-control" placeholder="Enter Chapati Count (3 rupees per piece)"> -->
             <div class="checkbox">
               <label style="font-size: 1.5em">
-                <input type="checkbox" value="" checked>
+                <input formControlName="milk" type="checkbox" value="milk" checked>
                 <span class="cr">
                   <i class="cr-icon fa fa-check"></i>
                 </span>
@@ -57,7 +63,7 @@
               </label>
 
               <label style="font-size: 1.5em">
-                <input type="checkbox" value="" checked>
+                <input formControlName="rice" type="checkbox" value="rice" checked>
                 <span class="cr">
                   <i class="cr-icon fa fa-check"></i>
                 </span>
@@ -68,7 +74,7 @@
               </label>
 
               <label style="font-size: 1.5em">
-                <input type="checkbox" value="" checked>
+                <input formControlName="dal" type="checkbox" value="dal" checked>
                 <span class="cr">
                   <i class="cr-icon fa fa-check"></i>
                 </span>
@@ -80,9 +86,12 @@
             </div>
 
             <div class="order-submit">
-              <input [disabled]="!loginForm.valid" type="submit" class="form-control submit" value="Place Your Order">
+              <input type="submit" class="form-control submit" value="Place Your Order">
             </div>
           </form>
+          <div *ngIf="message" [ngClass]="{'alert': message, 'alert-success': message.type ==='success', 'alert-danger':message.type==='error'}">
+          {{ messgae.text }}
+        </div>
         </div>
 
       </div>

@@ -48,13 +48,14 @@ import { GlobalErrorHandler } from './_services/globalerrorhandler.service'
     Routing
   ],
   providers: [
+    // {
+    //   provide: ErrorHandler, 
+    //   useClass: GlobalErrorHandler
+    // },
     UserService,
     AuthenticationService,
     GlobalErrorHandler,
-    {
-      provide: ErrorHandler, 
-      useClass: GlobalErrorHandler
-    }
+    
   ],
   bootstrap: [AppComponent]
 })

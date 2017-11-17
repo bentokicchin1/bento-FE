@@ -8,7 +8,7 @@ import { Constants } from '../_helpers/constants';
 
 @Injectable()
 export class AuthenticationService{
-    private url = Constants.baseUrl+'/'+Constants.errorApi;
+    private url = Constants.baseUrl+'/'+Constants.loginApi;
     private headers = new Headers({ 'Content-Type': 'application/json' });
     private options = new RequestOptions({ headers: this.headers });
     
